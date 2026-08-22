@@ -1,0 +1,18 @@
+name: Call Supabase RPC
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  call-rpc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST 请求调用RPC
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://wjifcpidvbtpdeezizvx.supabase.co/rest/v1/rpc/send_group_expire_remind'
+          method: 'POST'
+          contentType: 'application/json'
+          headers: |
+            apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqaWZjcGlkdmJ0cGRlZXppenZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxMjcyODIsImV4cCI6MjEwMjcwMzI4Mn0.3heWmp1jBVVybdeRriuLklS3dB_tKQacXR9bvtAmFJQ
+          data: '{}'
